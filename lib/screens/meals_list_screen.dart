@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import '../models/meal.dart';
 import '../services/meal_api_service.dart';
 import 'meal_detail_screen.dart';
+import 'custom_meals_screen.dart';
+
 
 class MealsListScreen extends StatefulWidget {
   const MealsListScreen({super.key});
@@ -50,6 +52,18 @@ class _MealsListScreenState extends State<MealsListScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Meals'),
+        actions: [
+    IconButton(
+      icon: const Icon(Icons.bookmark_add),
+      tooltip: 'My custom meals',
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (_) => CustomMealsScreen()),
+        );
+      },
+    ),
+  ],
       ),
       body: Column(
         children: [
